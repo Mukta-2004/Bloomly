@@ -1,0 +1,146 @@
+  
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; }
+
+        nav {
+            background: rgba(255,255,255,0.97);
+            border-bottom: 1px solid #f0e0e4;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo { font-size: 24px; font-weight: 600; color: #e8748a; font-family: Georgia, serif; }
+        .logo span { color: #6aab6a; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; margin: 0; }
+        .nav-links a { text-decoration: none; color: #666; font-size: 14px; transition: color 0.2s; }
+        .nav-links a:hover { color: #e8748a; }
+        .nav-cta {
+            background: #e8748a; color: #fff; border: none;
+            padding: 8px 20px; border-radius: 20px; font-size: 14px; cursor: pointer;
+        }
+
+        .hero { position: relative; height: 100vh; overflow: hidden; }
+        .slide {
+            position: absolute; inset: 0; opacity: 0;
+            transition: opacity 1.2s ease;
+            background-size: cover; background-position: center;
+        }
+        .slide.active { opacity: 1; }
+        .slide-1 { background-image: url('https://images.unsplash.com/photo-1487530811015-780780169af4?w=1400&q=80'); }
+        .slide-2 { background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&q=80'); }
+        .slide-3 { background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80'); }
+        .slide-4 { background-image: url('https://images.unsplash.com/photo-1490750967868-88df5691cc46?w=1400&q=80'); }
+        .overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 100%);
+        }
+        .hero-content {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center; padding: 2rem; z-index: 2;
+        }
+        .hero-badge {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff; font-size: 13px;
+            letter-spacing: 2px; text-transform: uppercase;
+            padding: 6px 20px; border-radius: 20px; margin-bottom: 1.5rem;
+        }
+        .hero-title {
+            font-size: 58px; font-weight: 500; color: #fff;
+            line-height: 1.15; margin-bottom: 1rem; font-family: Georgia, serif;
+        }
+        .hero-title span { color: #f9c5d1; }
+        .hero-sub {
+            font-size: 18px; color: rgba(255,255,255,0.88);
+            max-width: 520px; line-height: 1.8; margin-bottom: 2rem;
+        }
+        .btn-hero-primary {
+            background: #e8748a; color: #fff; border: none;
+            padding: 14px 36px; border-radius: 30px; font-size: 15px;
+            cursor: pointer; text-decoration: none; margin: 0 6px;
+        }
+        .btn-hero-outline {
+            background: transparent; color: #fff;
+            border: 2px solid rgba(255,255,255,0.7);
+            padding: 14px 36px; border-radius: 30px; font-size: 15px;
+            cursor: pointer; text-decoration: none; margin: 0 6px;
+        }
+        .btn-hero-primary:hover { background: #d4607a; color: #fff; }
+        .btn-hero-outline:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+        .dots {
+            position: absolute; bottom: 28px; left: 50%;
+            transform: translateX(-50%);
+            display: flex; gap: 8px; z-index: 3;
+        }
+        .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: rgba(255,255,255,0.4); cursor: pointer;
+            transition: all 0.3s;
+        }
+        .dot.active { background: #fff; width: 24px; border-radius: 4px; }
+
+        .section-label {
+            text-align: center; padding: 3.5rem 2rem 0.5rem;
+            font-size: 12px; letter-spacing: 3px;
+            text-transform: uppercase; color: #e8748a;
+        }
+        .section-title {
+            text-align: center; font-size: 32px; font-weight: 500;
+            color: #333; font-family: Georgia, serif;
+            padding: 0.5rem 2rem;
+        }
+        .section-sub {
+            text-align: center; font-size: 15px; color: #888;
+            padding: 0 2rem 2.5rem; max-width: 500px; margin: 0 auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem; max-width: 900px;
+            margin: 0 auto; padding: 0 2rem 4rem;
+        }
+        .feature-card {
+            text-align: center; padding: 2rem 1.5rem;
+            border: 1px solid #f0e0e4; border-radius: 12px;
+            background: #fff; transition: transform 0.2s;
+        }
+        .feature-card:hover { transform: translateY(-4px); }
+        .feature-icon { font-size: 36px; margin-bottom: 1rem; }
+        .feature-title { font-size: 15px; font-weight: 600; color: #333; margin-bottom: 0.5rem; }
+        .feature-desc { font-size: 13px; color: #888; line-height: 1.7; }
+
+        .quote-section {
+            padding: 5rem 2rem; text-align: center;
+            background: #fff9f9;
+        }
+        .quote-mark {
+            font-size: 100px; color: #e8748a; opacity: 0.15;
+            font-family: Georgia, serif; line-height: 0.4;
+            margin-bottom: 1.5rem; display: block;
+        }
+        .quote-text {
+            font-size: 22px; font-family: Georgia, serif; color: #444;
+            max-width: 680px; margin: 0 auto 1.5rem;
+            line-height: 1.9; font-style: italic;
+        }
+        .quote-author {
+            font-size: 12px; color: #aaa;
+            letter-spacing: 2px; text-transform: uppercase;
+        }
+
+        footer {
+            background: #fff; border-top: 1px solid #f0e0e4;
+            padding: 2rem; text-align: center;
+            font-size: 13px; color: #aaa;
+        }
+        footer a { color: #e8748a; text-decoration: none; }
+    
