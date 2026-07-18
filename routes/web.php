@@ -15,4 +15,8 @@ Route::get('/arrangements/about', function () {
     return view('arrangements.about');
 })->name('arrangements.about');
 
+Route::get('/arrangements/contact', function () {
+    return view('arrangements.contact');
+})->name('arrangements.contact');
+
 Route::resource('arrangements', ArrangementController::class);

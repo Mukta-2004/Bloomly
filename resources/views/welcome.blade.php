@@ -14,9 +14,8 @@
     <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="{{ route('arrangements.style') }}">Styles</a></li>
-        <li><a href="/arrangements">Book</a></li>
         <li><a href="{{ route('arrangements.about') }}">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="{{ route('arrangements.contact') }}">Contact</a></li>
     </ul>
     <button class="nav-cta">Share an idea</button>
 </nav>
@@ -33,7 +32,7 @@
         <p class="hero-sub">Handcrafted floral arrangements for your most cherished moments — weddings, birthdays, anniversaries and beyond.</p>
         <div class="mt-3">
             <a href="/arrangements" class="btn-hero-primary">Book a decoration</a>
-            <a href="/arrangements" class="btn-hero-outline">Browse styles</a>
+            
         </div>
     </div>
     <div class="dots" id="dots">

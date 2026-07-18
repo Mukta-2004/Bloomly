@@ -60,9 +60,8 @@ nav{background:rgba(255,255,255,0.97);border-bottom:1px solid #f0e0e4;padding:0 
   <ul class="nav-links">
     <li><a href="{{ route('home') }}">Home</a></li>
     <li><a href="#" class="active">Styles</a></li>
-    <li><a href="#">Book</a></li>
     <li><a href="{{ route('arrangements.about') }}">About</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="{{ route('arrangements.contact') }}">Contact</a></li>
   </ul>
   <button class="nav-cta">Share an idea</button>
 </nav>
