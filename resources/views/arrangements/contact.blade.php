@@ -50,6 +50,13 @@ nav{background:rgba(255,255,255,0.97);border-bottom:1px solid #f0e0e4;padding:0 
     <li><a href="{{ route('arrangements.style') }}">Styles</a></li>
     <li><a href="{{ route('arrangements.about') }}">About</a></li>
     <li><a href="{{ route('arrangements.contact') }}" class="active">Contact</a></li>
+     @auth
+        @if(auth()->user()->is_admin)
+         <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+        @endif
+        @else
+         <li><a href="{{ route('login') }}">Admin Login</a></li>
+        @endauth
   </ul>
   <button class="nav-cta">Share an idea</button>
 </nav>

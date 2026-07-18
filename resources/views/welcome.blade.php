@@ -16,6 +16,13 @@
         <li><a href="{{ route('arrangements.style') }}">Styles</a></li>
         <li><a href="{{ route('arrangements.about') }}">About</a></li>
         <li><a href="{{ route('arrangements.contact') }}">Contact</a></li>
+        @auth
+        @if(auth()->user()->is_admin)
+         <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+        @endif
+        @else
+         <li><a href="{{ route('login') }}">Admin Login</a></li>
+        @endauth
     </ul>
     <button class="nav-cta">Share an idea</button>
 </nav>
