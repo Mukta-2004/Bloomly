@@ -15,7 +15,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="{{ route('arrangements.style') }}">Styles</a></li>
         <li><a href="/arrangements">Book</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="{{ route('arrangements.about') }}">About</a></li>
         <li><a href="#">Contact</a></li>
     </ul>
     <button class="nav-cta">Share an idea</button>

@@ -58,10 +58,10 @@ nav{background:rgba(255,255,255,0.97);border-bottom:1px solid #f0e0e4;padding:0 
 <nav>
   <a href="#" class="logo">Bloom<span>ly</span></a>
   <ul class="nav-links">
-    <li><a href="#">Home</a></li>
+    <li><a href="{{ route('home') }}">Home</a></li>
     <li><a href="#" class="active">Styles</a></li>
     <li><a href="#">Book</a></li>
-    <li><a href="#">About</a></li>
+    <li><a href="{{ route('arrangements.about') }}">About</a></li>
     <li><a href="#">Contact</a></li>
   </ul>
   <button class="nav-cta">Share an idea</button>
