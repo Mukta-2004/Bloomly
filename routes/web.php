@@ -25,6 +25,10 @@ Route::get('/arrangements/book', function () {
     return view('arrangements.book');
 })->name('arrangements.book');
 
+Route::get('/arrangements/book/success', function () {
+    return view('arrangements.book-success');
+})->name('arrangements.book.success');
+
 Route::resource('arrangements', ArrangementController::class);
 
 Route::get('/dashboard', function () {
