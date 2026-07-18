@@ -230,8 +230,12 @@ function updateSummary() {
 }
 
 function proceed() {
-  alert(`Style saved!\nTheme: ${selectedColor}\nFlowers: ${selectedFlowers.join(', ')}\n\nProceeding to booking...`);
+  if (!selectedColor || selectedFlowers.length === 0) return;
+  sessionStorage.setItem('bloomly_theme', selectedColor);
+  sessionStorage.setItem('bloomly_flowers', JSON.stringify(selectedFlowers));
+  window.location.href = "{{ route('arrangements.book') }}";
 }
+
 </script>
 </body>
 </html>

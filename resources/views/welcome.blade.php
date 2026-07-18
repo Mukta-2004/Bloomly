@@ -38,8 +38,7 @@
         <h1 class="hero-title">Every occasion deserves<br>to <span>bloom</span></h1>
         <p class="hero-sub">Handcrafted floral arrangements for your most cherished moments — weddings, birthdays, anniversaries and beyond.</p>
         <div class="mt-3">
-            <a href="/arrangements" class="btn-hero-primary">Book a decoration</a>
-            
+           <a href="{{ route('arrangements.style') }}" class="btn-hero-primary">Book a decoration</a> 
         </div>
     </div>
     <div class="dots" id="dots">

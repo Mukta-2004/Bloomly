@@ -129,82 +129,94 @@
             font-size: 13px;
             cursor: pointer;
         }
+        .back-home{
+            display:inline-block;font-size:13px;color:#888;text-decoration:none;margin-bottom:6px;
+        }
+        .back-home:hover{
+            color:#e8748a;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="top-bar">
-        <h1>Bookings Dashboard 🌸</h1>
-
-        <form class="logout-form" method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit">Logout</button>
-        </form>
-    </div>
+<div class="top-bar">
+  <div>
+    <a href="{{ route('home') }}" class="back-home">← Back to Home</a>
+    <h1>Bookings Dashboard 🌸</h1>
+  </div>
+  <form class="logout-form" method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit">Logout</button>
+  </form>
+</div>
 
     @if(session('success'))
         <div class="alert">{{ session('success') }}</div>
     @endif
 
-    <table>
-        <thead>
+   <table>
+    <thead>
+        <tr>
+            <th>Occasion</th>
+            <th>Theme</th>
+            <th>Flowers</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @forelse($bookings as $booking)
             <tr>
-                <th>Title</th>
-                <th>Occasion</th>
-                <th>Price</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <td>{{ $booking->occasion }}</td>
+                <td>{{ $booking->color_theme }}</td>
+                <td>{{ $booking->flowers }}</td>
+                <td>{{ $booking->event_date ? \Carbon\Carbon::parse($booking->event_date)->format('M d, Y') : '-' }}</td>
+                <td>{{ $booking->event_time ? \Carbon\Carbon::parse($booking->event_time)->format('h:i A') : '-' }}</td>
+
+                <td>
+                    <span class="status {{ $booking->status }}">
+                        {{ ucfirst($booking->status) }}
+                    </span>
+                </td>
+
+                <td class="actions">
+                    <form action="{{ route('admin.bookings.approve', $booking) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button class="btn btn-approve">Approve</button>
+                    </form>
+
+                    <form action="{{ route('admin.bookings.cancel', $booking) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button class="btn btn-cancel">Cancel</button>
+                    </form>
+
+                    <a href="{{ route('admin.bookings.edit', $booking) }}" class="btn btn-edit">Edit</a>
+
+                    <form action="{{ route('admin.bookings.destroy', $booking) }}"
+                          method="POST"
+                          onsubmit="return confirm('Delete this booking permanently?');">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-delete">Delete</button>
+                    </form>
+                </td>
             </tr>
-        </thead>
-
-        <tbody>
-            @forelse($bookings as $booking)
-                <tr>
-                    <td>{{ $booking->title }}</td>
-                    <td>{{ $booking->occasion }}</td>
-                    <td>${{ number_format($booking->price, 2) }}</td>
-
-                    <td>
-                        <span class="status {{ $booking->status }}">
-                            {{ ucfirst($booking->status) }}
-                        </span>
-                    </td>
-
-                    <td class="actions">
-                        <form action="{{ route('admin.bookings.approve', $booking) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <button class="btn btn-approve">Approve</button>
-                        </form>
-
-                        <form action="{{ route('admin.bookings.cancel', $booking) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <button class="btn btn-cancel">Cancel</button>
-                        </form>
-
-                        <a href="{{ route('admin.bookings.edit', $booking) }}" class="btn btn-edit">Edit</a>
-
-                        <form action="{{ route('admin.bookings.destroy', $booking) }}"
-                              method="POST"
-                              onsubmit="return confirm('Delete this booking permanently?');">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-delete">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="5" style="text-align:center;color:#999;padding:2rem;">
-                        No bookings yet.
-                    </td>
-                </tr>
-            @endforelse
-        </tbody>
-    </table>
-
+        @empty
+            <tr>
+                <td colspan="7" style="text-align:center;color:#999;padding:2rem;">
+                    No bookings yet.
+                </td>
+            </tr>
+        @endforelse
+    </tbody>
+</table>
+    
 </body>
 
 </html>

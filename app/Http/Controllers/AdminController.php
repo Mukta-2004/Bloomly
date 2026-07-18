@@ -31,14 +31,15 @@ class AdminController extends Controller
 
     public function update(Request $request, Arrangement $arrangement)
     {
-        $data = $request->validate([
-            'title'       => 'required|string|max:255',
-            'description' => 'required',
-            'occasion'    => 'required|string',
-            'price'       => 'required|numeric|min:0',
-        ]);
-        $arrangement->update($data);
-        return redirect()->route('admin.dashboard')->with('success', 'Booking updated.');
+    $data = $request->validate([
+        'occasion'    => 'required|string',
+        'color_theme' => 'nullable|string',
+        'flowers'     => 'nullable|string',
+        'event_date'  => 'required|date',
+        'event_time'  => 'required',
+    ]);
+    $arrangement->update($data);
+    return redirect()->route('admin.dashboard')->with('success', 'Booking updated.');
     }
 
     public function destroy(Arrangement $arrangement)

@@ -92,35 +92,43 @@
         <h1>Edit Booking</h1>
 
         <form method="POST" action="{{ route('admin.bookings.update', $arrangement) }}">
-            @csrf
-            @method('PUT')
+         @csrf
+         @method('PUT')
 
-            <label>Title</label>
-            <input type="text" name="title" value="{{ old('title', $arrangement->title) }}">
-            @error('title')
-                <div class="error">{{ $message }}</div>
-            @enderror
+        <label>Occasion</label>
+        <input type="text" name="occasion" value="{{ old('occasion', $arrangement->occasion) }}">
+         @error('occasion')
+          <div class="error">{{ $message }}</div>
+         @enderror
 
-            <label>Occasion</label>
-            <input type="text" name="occasion" value="{{ old('occasion', $arrangement->occasion) }}">
-            @error('occasion')
-                <div class="error">{{ $message }}</div>
-            @enderror
+        <label>Color Theme</label>
+        <input type="text" name="color_theme" value="{{ old('color_theme', $arrangement->color_theme) }}">
+        @error('color_theme')
+         <div class="error">{{ $message }}</div>
+        @enderror
 
-            <label>Price</label>
-            <input type="number" step="0.01" name="price" value="{{ old('price', $arrangement->price) }}">
-            @error('price')
-                <div class="error">{{ $message }}</div>
-            @enderror
+       <label>Flowers</label>
+       <input type="text" name="flowers" value="{{ old('flowers', $arrangement->flowers) }}">
+       @error('flowers')
+         <div class="error">{{ $message }}</div>
+       @enderror
 
-            <label>Description</label>
-            <textarea name="description">{{ old('description', $arrangement->description) }}</textarea>
-            @error('description')
-                <div class="error">{{ $message }}</div>
-            @enderror
+       <label>Event Date</label>
+       <input type="date" name="event_date" value="{{ old('event_date', $arrangement->event_date) }}">
+       @error('event_date')
+        <div class="error">{{ $message }}</div>
+       @enderror
 
-            <button type="submit" class="btn-save">Save Changes</button>
-        </form>
+       <label>Event Time</label>
+       <input type="time" name="event_time" value="{{ old('event_time', $arrangement->event_time) }}">
+       @error('event_time')
+        <div class="error">{{ $message }}</div>
+       @enderror
+
+    <button type="submit" class="btn-save">Save Changes</button>
+</form>
+
+        
     </div>
 
 </body>

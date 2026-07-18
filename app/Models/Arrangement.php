@@ -2,10 +2,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Arrangement extends Model
 {
-    use HasFactory;
-    protected $fillable = ['title', 'description', 'occasion', 'price', 'image_path'];
+    protected $fillable = [
+        'title', 'description', 'occasion', 'color_theme',
+        'flowers', 'event_date', 'event_time', 'price', 'image_path', 'status',
+    ];
 }

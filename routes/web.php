@@ -21,6 +21,10 @@ Route::get('/contact', function () {
     return view('arrangements.contact');
 })->name('arrangements.contact');
 
+Route::get('/arrangements/book', function () {
+    return view('arrangements.book');
+})->name('arrangements.book');
+
 Route::resource('arrangements', ArrangementController::class);
 
 Route::get('/dashboard', function () {
