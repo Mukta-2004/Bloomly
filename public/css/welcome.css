@@ -31,10 +31,12 @@
             background-size: cover; background-position: center;
         }
         .slide.active { opacity: 1; }
-        .slide-1 { background-image: url('https://images.unsplash.com/photo-1487530811015-780780169af4?w=1400&q=80'); }
-        .slide-2 { background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&q=80'); }
-        .slide-3 { background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80'); }
-        .slide-4 { background-image: url('https://images.unsplash.com/photo-1490750967868-88df5691cc46?w=1400&q=80'); }
+        .slide-1 { background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&q=80');}
+        .slide-2 { background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1400&q=80'); }
+        .slide-3 { background-image: url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=1400&q=80'); }
+        .slide-4 { background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80'); }
+        .slide-4 { background-image: url("C:\Users\Msi\Bloomly\Screenshot 2026-07-15 210123.png");}
+       
         .overlay {
             position: absolute; inset: 0;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 100%);

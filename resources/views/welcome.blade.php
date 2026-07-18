@@ -13,7 +13,7 @@
     <div class="logo">Bloom<span>ly</span></div>
     <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/arrangements">Styles</a></li>
+        <li><a href="{{ route('arrangements.style') }}">Styles</a></li>
         <li><a href="/arrangements">Book</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
