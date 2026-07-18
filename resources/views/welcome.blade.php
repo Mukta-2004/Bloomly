@@ -24,7 +24,9 @@
          <li><a href="{{ route('login') }}">Admin Login</a></li>
         @endauth
     </ul>
-    <button class="nav-cta">Share an idea</button>
+    <button class="nav-cta">
+      <a href="{{ route('arrangements.contact') }}" class="nav-cta">Share an idea</a>
+    </button>
 </nav>
 
 <div class="hero">
@@ -76,6 +78,15 @@
     </div>
 </div>
 
+<div class="section" style="max-width:900px;margin:0 auto;padding:3rem 2rem;">
+  <p class="section-label">live from our api</p>
+  <h2 class="section-title">Recent Bloomly Bookings</h2>
+  <p class="section-sub">Pulled live via our REST API — see it update in real time.</p>
+  <div id="recentBookings" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1.5rem;">
+    <p style="color:#999;">Loading...</p>
+  </div>
+</div>
+
 <div class="quote-section">
     <span class="quote-mark">"</span>
     <p class="quote-text">Occasions are the kindest way to escape the busy, toxic rush of everyday life — and step into something wholesome, sweet, and beautifully loud.</p>
@@ -101,6 +112,28 @@
     }
 
     setInterval(() => { goTo((current + 1) % slides.length); }, 3000);
+</script>
+<script>
+fetch('/api/arrangements')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('recentBookings');
+    if (!data.length) {
+      container.innerHTML = '<p style="color:#999;">No bookings yet.</p>';
+      return;
+    }
+    container.innerHTML = data.slice(0, 6).map(b => `
+      <div style="background:#fff;border:2px solid #f0e0e4;border-radius:14px;padding:1.2rem;">
+        <div style="font-size:12px;color:#e8748a;text-transform:uppercase;letter-spacing:1px;">${b.occasion}</div>
+        <div style="font-family:Georgia,serif;font-size:16px;margin:6px 0;">${b.color_theme || 'Custom Style'}</div>
+        <div style="font-size:13px;color:#888;">🌸 ${b.flowers || 'Not specified'}</div>
+        <div style="font-size:12px;color:#aaa;margin-top:6px;">${b.event_date || ''}</div>
+      </div>
+    `).join('');
+  })
+  .catch(() => {
+    document.getElementById('recentBookings').innerHTML = '<p style="color:#c0392b;">Could not load bookings.</p>';
+  });
 </script>
 </body>
 </html>

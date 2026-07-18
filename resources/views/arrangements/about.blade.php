@@ -59,7 +59,9 @@ nav{
          <li><a href="{{ route('login') }}">Admin Login</a></li>
         @endauth
   </ul>
-  <button class="nav-cta">Share an idea</button>
+    <button class="nav-cta">
+      <a href="{{ route('arrangements.contact') }}" class="nav-cta">Share an idea</a>
+    </button>
 </nav>
 
 <div class="about-hero">
